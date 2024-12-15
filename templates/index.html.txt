@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Suivi Curative</title>
+    <link rel="stylesheet" href="styles.css">  <!-- Assurez-vous que ce fichier existe et est bien configuré -->
+</head>
+<body>
+    <h1>Suivi Curative</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>NB.SI</th>
+                <th>CATIGORIE</th>
+                <th>DESIGNATION</th>
+                <th>MATRICULE</th>
+                <th>DATE ENTREE</th>
+                <th>PANNE DECLAREE</th>
+                <th>SIT.ACTUELLE</th>
+                <th>PIECES</th>
+                <th>DATE SORTIE</th>
+                <th>INTERVENANT</th>
+                <th>AFFECTATION</th>
+                <th>NBR INDISPONIBILITE</th>
+                <th>JOUR OUVRABLE</th>
+                <th>RATIO</th>
+                <th>JOUR DISPONIBILITE</th>
+                <th>RATIO2</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for suivi in suivis %}
+            <tr>
+                <td>{{ suivi.NB_SI }}</td>
+                <td>{{ suivi.CATIGORIE }}</td>
+                <td>{{ suivi.DESIGNATION }}</td>
+                <td>{{ suivi.MATRICULE }}</td>
+                <td>{{ suivi.DATE_ENTREE }}</td>
+                <td>{{ suivi.PANNE_DECLAREE }}</td>
+                <td>{{ suivi.SIT_ACTUELLE }}</td>
+                <td>{{ suivi.PIECES }}</td>
+                <td>{{ suivi.DATE_SORTIE }}</td>
+                <td>{{ suivi.INTERVENANT }}</td>
+                <td>{{ suivi.AFFECTATION }}</td>
+                <td>{{ suivi.NBR_INDISPONIBILITE }}</td>
+                <td>{{ suivi.JOUR_OUVRABLE }}</td>
+                <td>{{ suivi.RATIO }}</td>
+                <td>{{ suivi.JOUR_DISPONIBILITE }}</td>
+                <td>{{ suivi.RATIO2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

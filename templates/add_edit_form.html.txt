@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter / Modifier</title>
+</head>
+<body>
+    <h1>{{ 'Modifier un enregistrement' if current_data else 'Ajouter un enregistrement' }}</h1>
+    <form method="POST">
+        {% for col in current_data.keys() %}
+            <label for="{{ col }}">{{ col }}:</label>
+            <input type="text" id="{{ col }}" name="{{ col }}" value="{{ current_data[col] }}">
+        {% endfor %}
+        <button type="submit">{{ 'Enregistrer' if current_data else 'Ajouter' }}</button>
+    </form>
+    <a href="{{ url_for('index') }}">Retour</a>
+</body>
+</html>
