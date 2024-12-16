@@ -10,11 +10,13 @@ def index():
     conn.row_factory = sqlite3.Row  # Récupération sous forme de dictionnaire
     cursor = conn.cursor()
 
-    # Récupération des données sans filtre
+    # Récupération des données
     cursor.execute("SELECT * FROM suivi_curative")
     suivis = cursor.fetchall()
 
     conn.close()
+
+    # Passer les données et les classes CSS à la template
     return render_template("index.html", suivis=suivis)
 
 @app.route("/search")

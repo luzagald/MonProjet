@@ -9,14 +9,32 @@ th, td {
     text-align: left;
     border: 1px solid #ddd; /* Bordure fine et grise */
 }
+/* Mise en forme conditionnelle */
 
+/* Si la situation est "En Cours" */
+.en-cours {
+    background-color: yellow;
+    color: red;
+}
+
+/* Si la situation est "Réparée" */
+.reparee {
+    background-color: blue;
+    color: white;
+}
+
+/* Si la situation est "Dépanné", colorier la cellule uniquement */
+.depanne-cell {
+    background-color: red;
+    color: yellow;
+}
 /* Largeur des colonnes */
 th:nth-child(1), td:nth-child(1) {
     width: 5%; /* Largeur pour la première colonne */
 }
 
 th:nth-child(2), td:nth-child(2) {
-    width: 10%; /* Largeur pour la deuxième colonne */
+    width: 5%; /* Largeur pour la deuxième colonne */
 }
 
 th:nth-child(3), td:nth-child(3) {
