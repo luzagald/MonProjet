@@ -1,18 +1,68 @@
-body {
-    font-family: Arial, sans-serif;
-}
-
+/* Styles généraux de la table */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Pour éviter les doublons de bordure */
 }
 
 th, td {
-    border: 1px solid #ddd;
     padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd; /* Bordure fine et grise */
 }
 
-th {
-    background-color: #f4f4f4;
-    text-align: left;
+/* Largeur des colonnes */
+th:nth-child(1), td:nth-child(1) {
+    width: 5%; /* Largeur pour la première colonne */
 }
+
+th:nth-child(2), td:nth-child(2) {
+    width: 10%; /* Largeur pour la deuxième colonne */
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: 15%; /* Largeur pour la troisième colonne */
+}
+
+th:nth-child(4), td:nth-child(4) {
+    width: 10%; /* Largeur pour la colonne MATRICULE */
+}
+
+/* Ajoutez d'autres colonnes selon vos besoins */
+th:nth-child(5), td:nth-child(5) {
+    width: 10%;
+}
+
+th:nth-child(6), td:nth-child(6) {
+    width: 15%;
+}
+th:nth-child(7), th:nth-child(7) {
+    width: 15%
+}
+th:nth-child(8), th:nth-child(8) {
+    width: 70%
+}
+th:nth-child(9), th:nth-child(9) {
+    width: 15%
+}
+th:nth-child(10), th:nth-child(10) {
+    width: 15%
+}
+th:nth-child(11), th:nth-child(11) {
+    width: 15%
+}
+th:nth-child(12), th:nth-child(12) {
+    width: 15%
+}
+th:nth-child(13), th:nth-child(13) {
+    width: 15%
+}
+th:nth-child(14), th:nth-child(14) {
+    width: 15%
+}
+th:nth-child(15), th:nth-child(15) {
+    width: 15%
+}
+th:nth-child(16), th:nth-child(16) {
+    width: 15%
+}
+/* Si vous avez plus de colonnes, vous pouvez continuer comme ça */

@@ -7,6 +7,10 @@
 </head>
 <body>
     <h1>Suivi Curative</h1>
+
+    <!-- Ajout de la barre de recherche -->
+    <input type="text" id="search" placeholder="Rechercher..." oninput="searchSuivi()">
+
     <table border="1">
         <thead>
             <tr>
@@ -28,7 +32,7 @@
                 <th>RATIO2</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="suivis-list">
             {% for suivi in suivis %}
             <tr>
                 <td>{{ suivi['NB.SI'] }}</td>
@@ -51,5 +55,42 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <script>
+        // Fonction JavaScript pour envoyer la requête de recherche sans recharger la page
+        function searchSuivi() {
+            var searchQuery = document.getElementById("search").value;
+            fetch("/search?query=" + searchQuery)
+                .then(response => response.json())
+                .then(data => {
+                    var suivisList = document.getElementById("suivis-list");
+                    suivisList.innerHTML = ""; // Vider la liste existante
+
+                    // Ajouter les résultats filtrés
+                    data.forEach(function(suivi) {
+                        var listItem = document.createElement("tr");
+                        listItem.innerHTML = `
+                            <td>${suivi['NB.SI']}</td>
+                            <td>${suivi['CATIGORIE']}</td>
+                            <td>${suivi['DESIGNATION']}</td>
+                            <td>${suivi['MATRICULE']}</td>
+                            <td>${suivi['DATE ENTREE']}</td>
+                            <td>${suivi['PANNE DECLAREE']}</td>
+                            <td>${suivi['SIT.ACTUELLE']}</td>
+                            <td>${suivi['PIECES']}</td>
+                            <td>${suivi['DATE SORTIE']}</td>
+                            <td>${suivi['INTERVENANT']}</td>
+                            <td>${suivi['AFFECTATION']}</td>
+                            <td>${suivi['NBR INDISPONIBILITE']}</td>
+                            <td>${suivi['JOUR OUVRABLE']}</td>
+                            <td>${suivi['RATIO']}</td>
+                            <td>${suivi['JOUR DISPONIBILITE']}</td>
+                            <td>${suivi['RATIO2']}</td>
+                        `;
+                        suivisList.appendChild(listItem);
+                    });
+                });
+        }
+    </script>
 </body>
 </html>
