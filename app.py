@@ -14,10 +14,14 @@ def index():
     cursor.execute("SELECT * FROM suivi_curative")
     suivis = cursor.fetchall()
 
+    # Afficher les valeurs de la colonne SIT.ACTUELLE dans le terminal
+    for suivi in suivis:
+        print(suivi['SIT.ACTUELLE'])  # Cela affichera la valeur de la colonne SIT.ACTUELLE pour chaque ligne
+
     conn.close()
 
-    # Passer les données et les classes CSS à la template
     return render_template("index.html", suivis=suivis)
+
 
 @app.route("/search")
 def search():
@@ -29,6 +33,7 @@ def search():
     # Recherche dans la base de données (ajustez la colonne à votre besoin)
     cursor.execute("SELECT * FROM suivi_curative WHERE CAST(MATRICULE AS TEXT) LIKE ?", ('%' + query + '%',))
     suivis = cursor.fetchall()
+
     conn.close()
     # Retourner les résultats au format JSON
     return jsonify([dict(suivi) for suivi in suivis])

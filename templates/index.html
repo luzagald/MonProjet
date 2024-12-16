@@ -29,37 +29,35 @@
             </tr>
         </thead>
         <tbody>
-            {% for suivi in suivis %}
-            <tr 
-                {% if suivi['SIT.ACTUELLE'] == 'En Cours' %}
-                    class="en-cours"
-                {% elif suivi['SIT.ACTUELLE'] == 'Réparée' %}
-                    class="reparee"
-                {% elif suivi['SIT.ACTUELLE'] == 'Dépanné' %}
-                    class="depanne"
-                {% endif %}
-            >
-                <td>{{ suivi['NB.SI'] }}</td>
-                <td>{{ suivi['CATIGORIE'] }}</td>
-                <td>{{ suivi['DESIGNATION'] }}</td>
-                <td>{{ suivi['MATRICULE'] }}</td>
-                <td>{{ suivi['DATE ENTREE'] }}</td>
-                <td>{{ suivi['PANNE DECLAREE'] }}</td>
-                <td class="{% if suivi['SIT.ACTUELLE'] == 'Dépanné' %}depanne-cell{% endif %}">
-                    {{ suivi['SIT.ACTUELLE'] }}
-                </td>
-                <td>{{ suivi['PIECES'] }}</td>
-                <td>{{ suivi['DATE SORTIE'] }}</td>
-                <td>{{ suivi['INTERVENANT'] }}</td>
-                <td>{{ suivi['AFFECTATION'] }}</td>
-                <td>{{ suivi['NBR INDISPONIBILITE'] }}</td>
-                <td>{{ suivi['JOUR OUVRABLE'] }}</td>
-                <td>{{ suivi['RATIO'] }}</td>
-                <td>{{ suivi['JOUR DISPONIBILITE'] }}</td>
-                <td>{{ suivi['RATIO2'] }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
+            <tbody>
+                {% for suivi in suivis %}
+                <tr 
+                    {% if suivi['SIT.ACTUELLE'] == 'En Cours' %}
+                        class="en-cours"
+                    {% elif suivi['SIT.ACTUELLE'] == 'Réparée' %}
+                        class="reparee"
+                    {% elif suivi['SIT.ACTUELLE'] == 'Dépanné' %}
+                        class="depanne"
+                    {% endif %}
+                >
+                    <td>{{ suivi['NB.SI'] }}</td>
+                    <td>{{ suivi['CATIGORIE'] }}</td>
+                    <td>{{ suivi['DESIGNATION'] }}</td>
+                    <td>{{ suivi['MATRICULE'] }}</td>
+                    <td>{{ suivi['DATE ENTREE'] }}</td>
+                    <td>{{ suivi['PANNE DECLAREE'] }}</td>
+                    <td>{{ suivi['SIT.ACTUELLE'] }}</td>
+                    <td>{{ suivi['PIECES'] }}</td>
+                    <td>{{ suivi['DATE SORTIE'] }}</td>
+                    <td>{{ suivi['INTERVENANT'] }}</td>
+                    <td>{{ suivi['AFFECTATION'] }}</td>
+                    <td>{{ suivi['NBR INDISPONIBILITE'] }}</td>
+                    <td>{{ suivi['JOUR OUVRABLE'] }}</td>
+                    <td>{{ suivi['RATIO'] }}</td>
+                    <td>{{ suivi['JOUR DISPONIBILITE'] }}</td>
+                    <td>{{ suivi['RATIO2'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </body>
 </html>

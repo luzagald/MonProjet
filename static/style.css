@@ -11,22 +11,24 @@ th, td {
 }
 /* Mise en forme conditionnelle */
 
-/* Si la situation est "En Cours" */
+/* Styles pour la classe 'en-cours' */
 .en-cours {
     background-color: yellow;
     color: red;
 }
 
-/* Si la situation est "Réparée" */
+/* Styles pour la classe 'reparee' */
 .reparee {
     background-color: blue;
     color: white;
 }
 
-/* Si la situation est "Dépanné", colorier la cellule uniquement */
-.depanne-cell {
+/* Styles pour la classe 'depanne' */
+.depanne td:nth-child(7) {
     background-color: red;
     color: yellow;
+}
+
 }
 /* Largeur des colonnes */
 th:nth-child(1), td:nth-child(1) {
