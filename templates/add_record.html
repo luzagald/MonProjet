@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un Enregistrement</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Ajouter un Enregistrement</h2>
+        <form method="POST" action="{{ url_for('add_record') }}">
+            <label for="NB.SI">NB.SI</label>
+            <input type="text" id="NB.SI" name="NB.SI" required>
+            
+            <!-- Autres champs ici -->
+
+            <button type="submit">Ajouter</button>
+        </form>
+
+        <!-- Lien retour à la liste -->
+        <a href="{{ url_for('index') }}">Retour à la liste</a>
+    </div>
+</body>
+</html>

@@ -6,58 +6,60 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Suivi Curative</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>NB.SI</th>
-                <th>CATÉGORIE</th>
-                <th>DESIGNATION</th>
-                <th>MATRICULE</th>
-                <th>DATE ENTREE</th>
-                <th>PANNE DECLARÉE</th>
-                <th>SIT.ACTUELLE</th>
-                <th>PIECES</th>
-                <th>DATE SORTIE</th>
-                <th>INTERVENANT</th>
-                <th>AFFECTATION</th>
-                <th>NBR INDISPONIBILITÉ</th>
-                <th>JOUR OUVRABLE</th>
-                <th>RATIO</th>
-                <th>JOUR DISPONIBILITÉ</th>
-                <th>RATIO2</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tbody>
-                {% for suivi in suivis %}
-                <tr 
-                    {% if suivi['SIT.ACTUELLE'] == 'En Cours' %}
-                        class="en-cours"
-                    {% elif suivi['SIT.ACTUELLE'] == 'Réparée' %}
-                        class="reparee"
-                    {% elif suivi['SIT.ACTUELLE'] == 'Dépanné' %}
-                        class="depanne"
-                    {% endif %}
-                >
-                    <td>{{ suivi['NB.SI'] }}</td>
-                    <td>{{ suivi['CATIGORIE'] }}</td>
-                    <td>{{ suivi['DESIGNATION'] }}</td>
-                    <td>{{ suivi['MATRICULE'] }}</td>
-                    <td>{{ suivi['DATE ENTREE'] }}</td>
-                    <td>{{ suivi['PANNE DECLAREE'] }}</td>
-                    <td>{{ suivi['SIT.ACTUELLE'] }}</td>
-                    <td>{{ suivi['PIECES'] }}</td>
-                    <td>{{ suivi['DATE SORTIE'] }}</td>
-                    <td>{{ suivi['INTERVENANT'] }}</td>
-                    <td>{{ suivi['AFFECTATION'] }}</td>
-                    <td>{{ suivi['NBR INDISPONIBILITE'] }}</td>
-                    <td>{{ suivi['JOUR OUVRABLE'] }}</td>
-                    <td>{{ suivi['RATIO'] }}</td>
-                    <td>{{ suivi['JOUR DISPONIBILITE'] }}</td>
-                    <td>{{ suivi['RATIO2'] }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-            </body>
+    <div class="form-container">
+        <h2>Ajouter un Enregistrement</h2>
+        <form method="POST" action="{{ url_for('add_record') }}">
+            <label for="NB.SI">NB.SI</label>
+            <input type="text" id="NB.SI" name="NB.SI">
+            
+            <label for="CATEGORIE">Catégorie</label>
+            <input type="text" id="CATEGORIE" name="CATEGORIE">
+            
+            <label for="DESIGNATION">Désignation</label>
+            <input type="text" id="DESIGNATION" name="DESIGNATION">
+            
+            <label for="MATRICULE">Matricule</label>
+            <input type="text" id="MATRICULE" name="MATRICULE">
+            
+            <label for="DATE_ENTREE">Date Entrée</label>
+            <input type="date" id="DATE_ENTREE" name="DATE_ENTREE">
+            
+            <label for="PANNE_DECLAREE">Panne Déclarée</label>
+            <input type="text" id="PANNE_DECLAREE" name="PANNE_DECLAREE">
+            
+            <label for="SIT_ACTUELLE">Situation Actuelle</label>
+            <input type="text" id="SIT_ACTUELLE" name="SIT_ACTUELLE">
+            
+            <label for="PIECES">Pièces</label>
+            <input type="text" id="PIECES" name="PIECES">
+            
+            <label for="DATE_SORTIE">Date Sortie</label>
+            <input type="date" id="DATE_SORTIE" name="DATE_SORTIE">
+            
+            <label for="INTERVENANT">Intervenant</label>
+            <input type="text" id="INTERVENANT" name="INTERVENANT">
+            
+            <label for="AFFECTATION">Affectation</label>
+            <input type="text" id="AFFECTATION" name="AFFECTATION">
+            
+            <label for="NBR_INDISPONIBILITE">Nombre d'Indisponibilité</label>
+            <input type="number" id="NBR_INDISPONIBILITE" name="NBR_INDISPONIBILITE">
+            
+            <label for="JOUR_OUVRABLE">Jour Ouvrable</label>
+            <input type="number" id="JOUR_OUVRABLE" name="JOUR_OUVRABLE">
+            
+            <label for="RATIO">Ratio</label>
+            <input type="text" id="RATIO" name="RATIO">
+            
+            <label for="JOUR_DISPONIBILITE">Jour Disponibilité</label>
+            <input type="number" id="JOUR_DISPONIBILITE" name="JOUR_DISPONIBILITE">
+            
+            <label for="RATIO2">Ratio2</label>
+            <input type="text" id="RATIO2" name="RATIO2">
+
+            <button type="submit">Ajouter</button>
+        </form>
+        <a class="back-link" href="{{ url_for('index') }}">Retour à la liste</a>
+    </div>
+</body>
 </html>
